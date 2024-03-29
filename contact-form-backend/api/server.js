@@ -44,7 +44,7 @@ const ContactSchema = new mongoose.Schema({
 const Contact = mongoose.model('Contact', ContactSchema);
 
 // Allow CORS (adjust origins if needed)
-app.use(cors({ origin: 'http://localhost:4000' }));
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 // Parse incoming form data
 app.use(bodyParser.json());

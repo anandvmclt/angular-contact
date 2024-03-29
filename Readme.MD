@@ -17,10 +17,14 @@ npm install express mongoose cors body-parser
 -End points: http://localhost:4000/api/contact
 
 # Create Frontend App using Angular 17
-
+ - ng new my-app --no-standalone
 - ng new contact-form-frontend
 - cd contact-form-frontend
 - ng add bootstrap@5
+
+"""
+In Angular 17, the default project structure has changed, and the app.module.ts file is no longer automatically generated. However, you can still create a module-based app if needed : ng new my-app --no-standalone
+"""
 
 # The file structure
 contact-form-frontend/
@@ -67,3 +71,15 @@ components/
     message-list.component.html
     message-list.component.spec.ts
     message-list.component.ts
+
+# Add Contact-form-components.ts and HTML files.
+- check for form validation and working.
+
+# Add API service to contact form component
+* Create an API Service component
+cd src/app/services
+ng generate service contact
+
+* Using the Service in ContactFormComponent:
+ - Import the ContactService into your contact-form.component.ts:
+
