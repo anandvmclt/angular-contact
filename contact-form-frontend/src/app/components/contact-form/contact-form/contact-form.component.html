@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-lg-6">
+        <h4> Contact Form </h4>
+        <form [formGroup]="contactForm" (submit)="onSubmit()">
+            <div class="mb-3">
+                <label for="name" class="form-label">Price</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+                @if (contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched){
+                <div class="form-text text-danger fw-bold"> Name is required</div>}
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="title" placeholder="Email" formControlName="email">
+                @if (contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched){
+                    <div class="form-text text-danger fw-bold"> Email is required</div>}
+            </div>
+
+            <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile</label>
+                <input type="text" class="form-control" id="mobile" placeholder="Mobile" formControlName="mobile">
+                @if (contactForm.get('mobile')?.hasError('required') && contactForm.get('mobile')?.touched){
+                    <div class="form-text text-danger fw-bold"> Mobile Should be Ten digit numbers only</div>}
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3" formControlName="message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
