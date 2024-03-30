@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MessagesService } from '../../../services/message.service';
+import axios from 'axios'; // Import Axios
 
 interface Message {
-  id: number;
+  _id: string;
   name: string;
   email: string;
   mobile: string;
@@ -15,20 +15,21 @@ interface Message {
   standalone: true,
   imports: [CommonModule,],
   templateUrl: './message-list.component.html',
-  styleUrl: './message-list.component.css'
+  styleUrls: ['./message-list.component.css']
 })
-
 export class MessageListComponent implements OnInit {
-  messages: Message[] = [
-    { id: 1, name: 'Mark', email: 'mdo@example.com', mobile: '1234567890', message: 'This is a message' },
-    { id: 2, name: 'Jacob', email: 'jacob@example.com', mobile: '9876543210', message: 'Another message' },
-    { id: 3, name: 'Larry the Bird', email: 'larry@twitter.com', mobile: '1200000000', message: 'A legendary message' }
-  ]; 
+  messages: Message[] = []; // Initialize as an empty array
 
-  constructor(private messagesService: MessagesService) {}
+  constructor() { } // Remove unused MessagesService injection
 
   ngOnInit(): void {
-    this.messagesService.getMessages()
-    .subscribe(messages => this.messages = messages);
+    axios.get<Message[]>('http://localhost:4000/api/contacts') // Replace with your API endpoint
+      .then(response => {
+        console.log("API Data :", response.data);
+        this.messages = response.data; // Update the messages array
+      })
+      .catch(error => {
+        console.error('Error fetching messages:', error); // Handle errors
+      });
   }
 }

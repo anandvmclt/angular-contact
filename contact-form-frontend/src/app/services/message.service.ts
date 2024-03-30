@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Message } from './message'; // Import the interface
 import { Observable } from 'rxjs'; // Import Observable
 
