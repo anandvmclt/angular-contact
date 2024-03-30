@@ -1,1 +1,25 @@
-<p>message-list works!</p>
+
+ <h3> Message List</h3>
+ <br>
+<div> 
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let message of messages">
+            <th scope="row">{{ message.id }}</th>
+            <td>{{ message.name }}</td>
+            <td>{{ message.email }}</td>
+            <td>{{ message.mobile }}</td>
+            <td>{{ message.message }}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
