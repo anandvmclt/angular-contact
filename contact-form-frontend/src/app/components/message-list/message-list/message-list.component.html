@@ -16,7 +16,7 @@
        <app-contact-form (onEditClose)="onEditClose($event)"  [message]="editMessage"></app-contact-form>
      </div>
     </div>
-    }
+  }
   <table class="table table-striped">
     <thead>
       <tr>
@@ -37,8 +37,8 @@
         <td>{{ message.message }}</td>
         <td>
           <svg
-          style="cursor: pointer;"
-            (click)="redirectToEdit(message)"
+            style="cursor: pointer;"
+            (click)="onEditMessage(message)"
             fill="none"
             height="24"
             stroke="currentColor"
