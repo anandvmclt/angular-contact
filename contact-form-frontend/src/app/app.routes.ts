@@ -3,7 +3,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form/con
 import { MessageListComponent } from './components/message-list/message-list/message-list.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo: '/contact-form', pathMatch: 'full' }, 
-    {path : 'contact-form', component:ContactFormComponent},
-    {path : 'messages', component:MessageListComponent},
+  { path: '', redirectTo: '/contact-form', pathMatch: 'full' },
+  { path: 'contact-form', component: ContactFormComponent },
+  { path: 'edit/:id', component: ContactFormComponent },
+  {path: 'messages',component: MessageListComponent,},
 ];

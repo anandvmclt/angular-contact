@@ -100,7 +100,7 @@ app.get('/api/contacts/:id', async (req, res) => {
 });
 
 // Update Contact by ID (Update)
-app.put('/api/contacts/:id', async (req, res) => {
+app.put('/api/contact/:id', async (req, res) => {
   const { id } = req.params;
   const { name, email, mobile, message, isRead } = req.body;
 
@@ -123,7 +123,7 @@ app.put('/api/contacts/:id', async (req, res) => {
 });
 
 // Delete Contact by ID (Delete)
-app.delete('/api/contacts/:id', async (req, res) => {
+app.delete('/api/contact/:id', async (req, res) => {
     const { id } = req.params;
   
     if (!mongoose.Types.ObjectId.isValid(id)) {
