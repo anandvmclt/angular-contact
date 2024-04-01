@@ -16,7 +16,6 @@ interface Message {
   selector: 'app-message-list',
   standalone: true,
   imports: [CommonModule, ContactFormComponent],
-  providers: [ContactService],
   templateUrl: './message-list.component.html',
   styleUrls: ['./message-list.component.css'],
 })
@@ -34,9 +33,8 @@ export class MessageListComponent implements OnInit {
   ngOnInit(): void {
     this.messagesService.getMessages().subscribe((data) => {
       this.messages = data;
-    },(error) => {
-      console.error('Error fetching messages:', error);
     });
+
   }
 
   onEditMessage(message: Message) {

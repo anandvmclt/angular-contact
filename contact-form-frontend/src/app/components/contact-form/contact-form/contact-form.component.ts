@@ -22,7 +22,6 @@ import { Message } from '../../../services/models';
   selector: 'app-contact-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
-  providers: [ContactService],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css',
 })

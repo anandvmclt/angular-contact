@@ -45,6 +45,7 @@ export class LoginComponent {
           (data) => {
             if(data.success){
               localStorage.setItem('access_token', data.token);
+              localStorage.setItem('refresh_token', data.refreshToken);
               this.router.navigate(['/']);
 
             }
