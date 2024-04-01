@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Message } from './message';
+import { Message } from './models';
 
 @Injectable()
  //  providedIn: 'root' // Make service available throughout the application

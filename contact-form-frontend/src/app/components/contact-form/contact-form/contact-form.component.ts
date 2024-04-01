@@ -16,7 +16,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ContactService } from '../../../services/contact.service';
-import { Message } from '../../../services/message';
+import { Message } from '../../../services/models';
 
 @Component({
   selector: 'app-contact-form',

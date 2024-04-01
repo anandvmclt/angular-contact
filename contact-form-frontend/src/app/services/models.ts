@@ -6,3 +6,13 @@ export interface Message {
     mobile: string;
     message: string;
   }
+
+
+  // message.ts
+export interface User {
+  _id: string;
+  email: string;
+  userName: string;
+  password: string;
+}
+  
