@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import axios from 'axios'; // Import Axios
 import { Router } from '@angular/router';
 import { ContactService } from '../../../services/contact.service';
+import { ContactFormComponent } from '../../contact-form/contact-form/contact-form.component';
 
 interface Message {
   _id: string;
@@ -15,15 +16,18 @@ interface Message {
 @Component({
   selector: 'app-message-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ContactFormComponent],
   providers: [ContactService],
   templateUrl: './message-list.component.html',
   styleUrls: ['./message-list.component.css'],
+  
 })
 export class MessageListComponent implements OnInit {
   messages: Message[] = []; // Initialize as an empty array
   id: string | null = null;
+  editMessage:Message | null =null
   showAlert = false;
+  edit = false;
   constructor(private router: Router, private contactService: ContactService) {}
 
   ngOnInit(): void {
@@ -38,8 +42,9 @@ export class MessageListComponent implements OnInit {
       });
   }
 
-  redirectToEdit(id: string) {
-    this.router.navigate(['/edit/', id]);
+  redirectToEdit(id: Message) {
+    this.edit=true
+    this.editMessage=id
   }
 
   deleteMessage(id: string) {
@@ -60,5 +65,15 @@ export class MessageListComponent implements OnInit {
   cancel() {
     this.id = null;
     this.showAlert = false;
+  }
+
+  onEditClose(message:null|Message) {
+    if(message){
+      let index = this.messages.findIndex((item)=> item._id === message._id);
+      if(index !== -1) {
+        this.messages[index] = message;
+      }
+    }
+    this.edit = false; 
   }
 }

@@ -1,6 +1,6 @@
 // message.ts
 export interface Message {
-    id: number;
+    _id: string;
     name: string;
     email: string;
     mobile: string;
