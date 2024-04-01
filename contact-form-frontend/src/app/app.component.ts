@@ -16,6 +16,12 @@ export class AppComponent {
   title = 'contact-form-frontend';
 
   isLoginPage(): boolean {
-    return this.router.url === '/login'||this.router.url === '/signup' ; // Replace '/login' with your actual login route
+    return this.router.url === '/login'||this.router.url === '/signup' ; 
+  }
+
+  logOut(){
+    localStorage.clear()
+    this.router.navigate(['/login']);
+
   }
 }

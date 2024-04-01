@@ -54,7 +54,7 @@ export class SignupComponent {
         .subscribe(
           (data) => {
             if (data.success) {
-              localStorage.setItem('access_token', data.token);
+              localStorage.setItem('token', data.token);
               this.router.navigate(['/']);
             }
           },
