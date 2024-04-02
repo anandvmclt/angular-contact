@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import {  ActivatedRouteSnapshot, CanActivate, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserGuard implements CanActivate {
-  constructor( private router: Router) { }
+  constructor(private router: Router) {}
   canActivate() {
-    const isLoggedIn =localStorage.getItem("access_token")
-    if (isLoggedIn) {
-      return true;
-    } else {
-      return this.router.navigate(['/login']);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const isLoggedIn = localStorage.getItem('access_token');
+      if (isLoggedIn) {
+        return true;
+      } else {
+        return this.router.navigate(['/login']);
+      }
     }
+    return false;
   }
-
 }

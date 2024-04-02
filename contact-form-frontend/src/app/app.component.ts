@@ -1,12 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterOutlet, RouterLink, Router } from '@angular/router';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { HttpClientModule } from '@angular/common/http'; 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,],
+  imports: [RouterOutlet,RouterLink,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

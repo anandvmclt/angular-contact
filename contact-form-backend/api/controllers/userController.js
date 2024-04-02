@@ -103,6 +103,6 @@ exports.refreshToken = async (req, res) => {
 
     res.json({ accessToken, refreshToken: newRefreshToken,message: "Token refreshed successfully" ,success:true});
   } catch (err) {
-    res.status(404).json({ message: 'Invalid refresh token' });
+    res.json({ message: 'Invalid refresh token',success:false });
   }
 };
